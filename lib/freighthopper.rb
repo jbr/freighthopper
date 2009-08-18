@@ -29,6 +29,13 @@ class ActiveSupport::Cache::FileStore
   end
 end
 
+class String
+  def strip(what = /\s/)
+    gsub /^#{what}*|#{what}*$/, ''
+  end
+end
+    
+
 
 class Array
   def mean
