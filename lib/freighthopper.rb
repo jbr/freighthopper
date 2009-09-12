@@ -33,6 +33,10 @@ class String
   def strip(what = /\s/)
     gsub /^#{what}*|#{what}*$/, ''
   end
+  
+  def /(num)
+    scan /.{1,#{(size / num.to_f).ceil}}/
+  end
 end
     
 
