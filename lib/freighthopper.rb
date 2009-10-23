@@ -11,7 +11,7 @@ class Array
   def singular() singular?? first : nil end
   def singular!() singular or raise "not singular" end
 end
-
+ 
 class Object
   def soft_send(method, *args)
     send method, *args if respond_to? method
@@ -22,13 +22,6 @@ class Object
   end
 end
 
-class ActiveSupport::Cache::FileStore
-  define_and_alias :delete, :puts do |*args|
-    puts "deleting "+real_file_path(args.first)
-    delete_without_puts *args
-  end
-end
-
 class String
   def strip(what = /\s/)
     gsub /^#{what}*|#{what}*$/, ''
@@ -36,14 +29,6 @@ class String
   
   def /(num)
     scan /.{1,#{(size / num.to_f).ceil}}/
-  end
-end
-    
-
-
-class Array
-  def mean
-    sum/size.to_f
   end
 end
 
@@ -63,6 +48,9 @@ class Float
     (format.is_a?(Fixnum) ? "%0.#{format}f" : format) % self
   end
 end
+
+
+# untested below here
 
 require 'pp'
 module Kernel
