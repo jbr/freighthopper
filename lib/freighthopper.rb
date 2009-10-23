@@ -77,35 +77,38 @@ module Kernel
 end
 
 # Kernel.trace_output = true
-
-class ActionMailer::Base
-  class << self
-    define_and_alias :method_missing, :delayed_deliver do |method_name, *args|
-      if method_name.to_s =~ /^delayed_(deliver_[a-z_]+)$/
-        self.send_later $1, *args
-      else
-        method_missing_without_delayed_deliver(method_name, *args)
+if Module.const_defined? :ActionMailer
+  class ActionMailer::Base
+    class << self
+      define_and_alias :method_missing, :delayed_deliver do |method_name, *args|
+        if method_name.to_s =~ /^delayed_(deliver_[a-z_]+)$/
+          self.send_later $1, *args
+        else
+          method_missing_without_delayed_deliver(method_name, *args)
+        end
       end
     end
   end
 end
 
-module ActiveRecord
-  class Errors
-    def clear_on(attribute)
-      @errors.delete attribute.to_s
+if Module.const_defined? :ActiveRecord
+  module ActiveRecord
+    class Errors
+      def clear_on(attribute)
+        @errors.delete attribute.to_s
+      end
     end
-  end
   
-  class Base
-    extend ActiveSupport::Memoizable
+    class Base
+      extend ActiveSupport::Memoizable
     
-    def cache_key
-      [self.class.to_s.underscore, to_param, soft_send(:cached_at).try(:to_i) || soft_send(:updated_at).try(:to_i)].compact.join("/")
-    end
+      def cache_key
+        [self.class.to_s.underscore, to_param, soft_send(:cached_at).try(:to_i) || soft_send(:updated_at).try(:to_i)].compact.join("/")
+      end
 
-    def element_id
-      "#{self.class.to_s.underscore}_#{self.to_param}"
+      def element_id
+        "#{self.class.to_s.underscore}_#{self.to_param}"
+      end
     end
   end
 end
