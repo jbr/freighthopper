@@ -30,6 +30,17 @@ class String
   def /(num)
     scan /.{1,#{(size / num.to_f).ceil}}/
   end
+  
+  def unindent(options = {})
+    tablength = options[:tablength] || 2
+    lines = gsub("\t", " " * tablength).split("\n")
+
+    whitespace = lines.map do |line|
+      line.match(/^(\s+)/).captures.first
+    end.min{ |l, r| l.length <=> r.length }
+
+    lines.map{ |l| l.gsub /^#{whitespace}/, ''}.join("\n")
+  end
 end
 
 class Hash
@@ -49,9 +60,6 @@ class Float
   end
 end
 
-
-# untested below here
-
 require 'pp'
 module Kernel
   mattr_accessor :trace_output  
@@ -62,17 +70,6 @@ module Kernel
       puts_without_source_and_passthrough if Kernel.trace_output
       return *args
     end
-  end
-  
-  def unindent(string, options = {})
-    tablength = options[:tablength] || 2
-    lines = string.gsub("\t", " " * tablength).split("\n")
-
-    whitespace = lines.map do |line|
-      line.match(/^(\s+)/).captures.first
-    end.min{ |l, r| l.length <=> r.length }
-
-    lines.map{ |l| l.gsub /^#{whitespace}/, ''}.join("\n")
   end
 end
 

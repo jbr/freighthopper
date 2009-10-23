@@ -33,4 +33,26 @@ class StringTest < Test::Unit::TestCase
       end
     end
   end
+  
+  context 'unindent' do
+    should 'remove the least common leading whitespace' do
+      unindented = (<<-END).unindent
+        a
+          b
+            c
+      END
+      
+      assert_equal "a\n  b\n    c", unindented
+    end
+    
+    should 'replace tabs with tablength' do
+      unindented = "\ttest\n\t\ttest".unindent :tablength => 4
+      assert_equal "test\n    test", unindented
+    end
+
+    should 'replace tabs with tablength (defaulting to 2)' do
+      unindented = "\ttest\n\t\ttest".unindent
+      assert_equal "test\n  test", unindented
+    end
+  end
 end
