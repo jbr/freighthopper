@@ -1,2 +1,6 @@
 .svn
 lib/svn
+vendor/gems/gems/*
+vendor/gems/specifications/*
+vendor/gems/doc/*
+vendor/gems/environment.rb

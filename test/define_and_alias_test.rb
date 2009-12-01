@@ -16,7 +16,7 @@ class DefineAndAliasTest < Test::Unit::TestCase
   end
   
   context 'with a SomeClass' do
-    before {@object = SomeClass.new}
+    setup {@object = SomeClass.new}
 
     should 'respond to foo_with_bar' do
       assert @object.respond_to?('foo_with_bar')
