@@ -4,6 +4,10 @@ class Module
     define_method :"#{aliased_target}_with_#{feature}#{punctuation}", &blk
     alias_method_chain target, feature
   end
+  
+  def lazy_alias(to, from)
+    define_method(to){|*args| send from, *args}
+  end
 end
 
 class Array
@@ -19,6 +23,10 @@ class Object
   
   def or_if_blank(val = nil)
     soft_send(:blank?) ? (val || yield) : self
+  end
+  
+  def is_one_of?(*args)
+    args.flatten.any?{|klass| is_a? klass}
   end
 end
 

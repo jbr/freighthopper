@@ -29,4 +29,18 @@ class ObjectTest < Test::Unit::TestCase
       assert_equal 5, "".or_if_blank{5}
     end
   end
+  
+  context 'is_one_of?' do
+    should 'check if the object is one of the arguments' do
+      assert "hello".is_one_of?(Fixnum, Symbol, Proc, String)
+    end
+    
+    should 'work with an array as well' do
+      assert :symbol.is_one_of?([Fixnum, Symbol])
+    end
+    
+    should 'return false if there is no match' do
+      assert_not :symbol.is_one_of?(Proc, String)
+    end
+  end
 end
