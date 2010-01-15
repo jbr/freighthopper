@@ -22,7 +22,11 @@ class Object
   end
   
   def or_if_blank(val = nil)
-    soft_send(:blank?) ? (val || yield) : self
+    if soft_send :blank?
+      val || (block_given? ? yield : nil)
+    else
+      self
+    end
   end
   
   def is_one_of?(*args)

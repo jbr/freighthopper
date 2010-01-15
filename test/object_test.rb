@@ -17,6 +17,10 @@ class ObjectTest < Test::Unit::TestCase
   end
   
   context 'or_if_blank' do
+    should 'return nil if there is no block and the argument is nil' do
+      assert_nil "".or_if_blank(nil)
+    end
+    
     should 'return the callee if it is not blank' do
       assert_equal "hello", "hello".or_if_blank(5)
     end
