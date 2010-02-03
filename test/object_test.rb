@@ -16,6 +16,24 @@ class ObjectTest < Test::Unit::TestCase
     end
   end
   
+  context 'eval_with_options' do
+    setup do
+      def foo(arg1, options = {})
+        [arg1, options]
+      end
+    end
+    
+    should 'pass options to any method called in the block' do
+      returned = nil
+
+      eval_with_options :wibble => :baz do
+        returned = foo(:squee)
+      end
+      
+      assert_equal [:squee, {:wibble => :baz}], returned
+    end
+  end
+  
   context 'or_if_blank' do
     should 'return nil if there is no block and the argument is nil' do
       assert_nil "".or_if_blank(nil)

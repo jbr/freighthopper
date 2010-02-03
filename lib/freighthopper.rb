@@ -32,6 +32,12 @@ class Object
   def is_one_of?(*args)
     args.flatten.any?{|klass| is_a? klass}
   end
+  
+  def eval_with_options(*args, &blk)
+    with_options *args do |map|
+      map.instance_eval(&blk)
+    end
+  end
 end
 
 class String
