@@ -92,7 +92,8 @@ module Kernel
 end
 
 # Kernel.trace_output = true
-if Module.const_defined? :ActionMailer
+
+if defined?(ActionMailer)
   class ActionMailer::Base
     class << self
       define_and_alias :method_missing, :delayed_deliver do |method_name, *args|
@@ -106,7 +107,7 @@ if Module.const_defined? :ActionMailer
   end
 end
 
-if Module.const_defined? :ActiveRecord
+if defined?(ActiveRecord)
   module ActiveRecord
     class Errors
       def clear_on(attribute)
