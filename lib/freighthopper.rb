@@ -1,4 +1,4 @@
-require 'activesupport'
+require 'active_support'
 
 class Module
   def define_and_alias(target, feature, &blk)
