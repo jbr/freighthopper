@@ -95,20 +95,6 @@ end
 
 # Kernel.trace_output = true
 
-if defined?(ActionMailer)
-  class ActionMailer::Base
-    class << self
-      define_and_alias :method_missing, :delayed_deliver do |method_name, *args|
-        if method_name.to_s =~ /^delayed_(deliver_[a-z_]+)$/
-          self.send_later $1, *args
-        else
-          method_missing_without_delayed_deliver(method_name, *args)
-        end
-      end
-    end
-  end
-end
-
 if defined?(ActiveRecord)
   module ActiveRecord
     class Errors
