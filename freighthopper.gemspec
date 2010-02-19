@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{freighthopper}
-  s.version = "0.1.3"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jacob Rothstein"]
-  s.date = %q{2010-02-04}
+  s.date = %q{2010-02-19}
   s.default_executable = %q{convert_to_should_syntax}
   s.description = %q{More core ext}
   s.email = %q{github@jacobrothstein.com}
@@ -19,8 +19,10 @@ Gem::Specification.new do |s|
      "README"
   ]
   s.files = [
-    ".gitignore",
+    ".bundle/environment.rb",
+     ".gitignore",
      "Gemfile",
+     "Gemfile.lock",
      "LICENSE",
      "README",
      "Rakefile",
@@ -39,11 +41,8 @@ Gem::Specification.new do |s|
      "test/object_test.rb",
      "test/string_test.rb",
      "test/test_helper.rb",
-     "vendor/gems/cache/shoulda-2.10.2.gem",
-     "vendor/gems/cache/test-rig-0.0.1.gem",
-     "vendor/gems/doc/.gitkeep",
-     "vendor/gems/gems/.gitkeep",
-     "vendor/gems/specifications/.gitkeep"
+     "vendor/cache/shoulda-2.10.3.gem",
+     "vendor/cache/test-rig-0.0.3.gem"
   ]
   s.homepage = %q{http://github.com/jbr/freighthopper}
   s.rdoc_options = ["--charset=UTF-8"]
