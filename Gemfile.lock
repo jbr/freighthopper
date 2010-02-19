@@ -6,7 +6,7 @@ specs:
     version: 0.0.3
 - shoulda: 
     version: 2.10.3
-hash: 6e72130f9766a97765b3aeb6320cca2b5bad26cf
+hash: b487f2796325fa0793d27b2d67ffc9026fa2ac5b
 sources: []
 
 dependencies: 
