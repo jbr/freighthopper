@@ -53,16 +53,28 @@ class ObjectTest < Test::Unit::TestCase
   end
   
   context 'is_one_of?' do
-    should 'check if the object is one of the arguments' do
-      assert "hello".is_one_of?(Fixnum, Symbol, Proc, String)
+    context 'with is_a? functionality' do
+      should 'check if the object is one of the arguments' do
+        assert "hello".is_one_of?(Fixnum, Symbol, Proc, String)
+      end
+    
+      should 'work with an array as well' do
+        assert :symbol.is_one_of?([Fixnum, Symbol])
+      end
+    
+      should 'return false if there is no match' do
+        assert_not :symbol.is_one_of?(Proc, String)
+      end
     end
     
-    should 'work with an array as well' do
-      assert :symbol.is_one_of?([Fixnum, Symbol])
-    end
-    
-    should 'return false if there is no match' do
-      assert_not :symbol.is_one_of?(Proc, String)
+    context 'with threequal functionality' do
+      should 'check if the object is equal to one of the arguments' do
+        assert "hello".is_one_of?("dear", "world", "hello")
+      end
+      
+      should 'work with a regular expression as well' do
+        assert "hello".is_one_of?(/h.{3}o/, /h/)
+      end
     end
   end
 end

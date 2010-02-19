@@ -32,7 +32,7 @@ class Object
   end
   
   def is_one_of?(*args)
-    args.flatten.any?{|klass| is_a? klass}
+    args.flatten.any?{|arg| arg === self }
   end
   
   def eval_with_options(*args, &blk)
@@ -82,7 +82,8 @@ end
 
 require 'pp'
 module Kernel
-  mattr_accessor :trace_output  
+  def trace_output() @@trace_output end
+  def trace_output=(t) @@trace_output = t end
   %w(pp p puts).each do |method|
     define_and_alias method, :source_and_passthrough do |*args|
       puts_without_source_and_passthrough caller.first if Kernel.trace_output
