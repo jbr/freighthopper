@@ -2,14 +2,33 @@
 specs: 
 - activesupport: 
     version: 2.3.5
+- bundler: 
+    version: 0.9.7
 - test-rig: 
     version: 0.0.3
 - shoulda: 
     version: 2.10.3
-hash: b487f2796325fa0793d27b2d67ffc9026fa2ac5b
+hash: cf7bde421d8dd92b1004c796083f5db4f61c5f74
 sources: []
 
 dependencies: 
-- activesupport: = 2.3.5
-- test-rig: = 0.0.3
-- shoulda: ">= 0"
+  shoulda: 
+    version: ">= 0"
+    group: 
+    - :test
+  test-rig: 
+    version: = 0.0.3
+    require: 
+    - test_rig
+    group: 
+    - :test
+  bundler: 
+    version: = 0.9.7
+    group: 
+    - :default
+  activesupport: 
+    version: = 2.3.5
+    require: 
+    - activesupport
+    group: 
+    - :default
