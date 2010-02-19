@@ -1,0 +1,15 @@
+--- 
+specs: 
+- activesupport: 
+    version: 2.3.5
+- shoulda: 
+    version: 2.10.3
+- test-rig: 
+    version: 0.0.3
+hash: 588b0e9a1b6bf1d427a36ed6551864812cf2fd9d
+sources: []
+
+dependencies: 
+- activesupport: ">= 0"
+- test-rig: = 0.0.3
+- shoulda: ">= 0"

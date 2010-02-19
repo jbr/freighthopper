@@ -1,15 +1,18 @@
+require 'test/unit'
+
 begin
-  require File.instance_eval { expand_path join(dirname(__FILE__), '..', 'vendor', 'gems', 'environment')}
+  # Try to require the preresolved locked set of gems.
+  require File.expand_path('../../.bundle/environment', __FILE__)
 rescue LoadError
-  puts "Bundling Gems\n\nHang in there, this only has to happen once...\n\n"
-  system 'gem bundle'
-  retry
+  # Fall back on doing an unlocked resolve at runtime.
+  require "rubygems"
+  require "bundler"
+  Bundler.setup
 end
 
-Bundler.require_env :test
+Bundler.require :default, :test
 
 $:.unshift File.instance_eval { expand_path join(dirname(__FILE__), "..", "lib") }
-require 'test/unit'
 
 
 class Test::Unit::TestCase
