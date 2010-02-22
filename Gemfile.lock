@@ -1,14 +1,24 @@
 --- 
 specs: 
-- activesupport: 
-    version: 2.3.5
 - bundler: 
     version: 0.9.7
-- test-rig: 
-    version: 0.0.3
+- activesupport: 
+    version: 2.3.5
+- json_pure: 
+    version: 1.2.0
+- git: 
+    version: 1.2.5
 - shoulda: 
     version: 2.10.3
-hash: cf7bde421d8dd92b1004c796083f5db4f61c5f74
+- gemcutter: 
+    version: 0.3.0
+- test-rig: 
+    version: 0.0.3
+- rubyforge: 
+    version: 2.0.3
+- jeweler: 
+    version: 1.4.0
+hash: 0951c1e72f949b4b95ab7eedeef46f6237fa99ff
 sources: []
 
 dependencies: 
@@ -22,13 +32,17 @@ dependencies:
     - test_rig
     group: 
     - :test
-  bundler: 
-    version: = 0.9.7
+  jeweler: 
+    version: ">= 0"
     group: 
     - :default
   activesupport: 
     version: = 2.3.5
     require: 
     - activesupport
+    group: 
+    - :default
+  bundler: 
+    version: = 0.9.7
     group: 
     - :default
