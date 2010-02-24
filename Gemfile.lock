@@ -4,11 +4,11 @@ specs:
     version: 2.3.5
 - bundler: 
     version: 0.9.7
-- test-rig: 
+- test_rig: 
     version: 0.0.3
 - shoulda: 
     version: 2.10.3
-hash: cf7bde421d8dd92b1004c796083f5db4f61c5f74
+hash: 6fa8e2209e4530047d2dd2e5c792a1a839ff306c
 sources: []
 
 dependencies: 
@@ -16,10 +16,8 @@ dependencies:
     version: ">= 0"
     group: 
     - :test
-  test-rig: 
+  test_rig: 
     version: = 0.0.3
-    require: 
-    - test_rig
     group: 
     - :test
   bundler: 
