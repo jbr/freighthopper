@@ -82,8 +82,8 @@ end
 
 require 'pp'
 module Kernel
-  def trace_output() @@trace_output end
-  def trace_output=(t) @@trace_output = t end
+  def self.trace_output() @@trace_output ||= false end
+  def self.trace_output=(t) @@trace_output = t end
   %w(pp p puts).each do |method|
     define_and_alias method, :source_and_passthrough do |*args|
       puts_without_source_and_passthrough caller.first if Kernel.trace_output
