@@ -2,6 +2,12 @@ require File.instance_eval { expand_path join(dirname(__FILE__), 'test_helper') 
 require 'freighthopper'
 
 class ArrayTest < Test::Unit::TestCase
+  context 'symbols' do
+    should 'map to sym' do
+      assert_equal [:a, :b, :c, :d, :e], %w( a b c d e ).symbols
+    end
+  end
+  
   context 'singular' do
     should 'return the singular object if there is indeed only one' do
       assert_singular 5, [5]

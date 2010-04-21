@@ -16,6 +16,7 @@ class Array
   def singular?() size == 1 end
   def singular() singular?? first : nil end
   def singular!() singular or raise "not singular" end
+  def symbols() map {|x| x.to_sym} end
 end
  
 class Object
@@ -50,6 +51,8 @@ class String
   def /(num)
     scan /.{1,#{(size / num.to_f).ceil}}/
   end
+  
+  def _() split(/\s+/).symbols end
   
   def unindent(options = {})
     tablength = options[:tablength] || 2

@@ -34,6 +34,12 @@ class StringTest < Test::Unit::TestCase
     end
   end
   
+  context '._' do
+    should 'split and map to sym' do
+      assert_equal [:bark, :claim, :deep, :everest], "bark     claim \n\ndeep\teverest"._
+    end
+  end
+  
   context 'unindent' do
     should 'remove the least common leading whitespace' do
       unindented = (<<-END).unindent
