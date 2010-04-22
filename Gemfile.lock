@@ -6,7 +6,7 @@ specs:
     version: 2.10.3
 - test_rig: 
     version: 0.0.3
-hash: 61378bb084f73e914af11af9c8369fa957a6a58c
+hash: 36f75b5b994d20b47841bc6cc30c3e8bdd387129
 sources: []
 
 dependencies: 

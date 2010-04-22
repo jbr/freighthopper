@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{freighthopper}
-  s.version = "0.1.6"
+  s.version = "0.1.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jacob Rothstein"]
-  s.date = %q{2010-04-21}
+  s.date = %q{2010-04-22}
   s.default_executable = %q{convert_to_should_syntax}
   s.description = %q{More core ext}
   s.email = %q{github@jacobrothstein.com}
@@ -39,16 +39,12 @@ Gem::Specification.new do |s|
      "test/lazy_alias_test.rb",
      "test/object_test.rb",
      "test/string_test.rb",
-     "test/test_helper.rb",
-     "vendor/cache/activesupport-2.3.5.gem",
-     "vendor/cache/bundler-0.9.7.gem",
-     "vendor/cache/shoulda-2.10.3.gem",
-     "vendor/cache/test_rig-0.0.3.gem"
+     "test/test_helper.rb"
   ]
   s.homepage = %q{http://github.com/jbr/freighthopper}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{Some extensions for riding the rails}
   s.test_files = [
     "test/array_test.rb",
