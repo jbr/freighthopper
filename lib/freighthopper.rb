@@ -17,6 +17,7 @@ class Array
   def singular() singular?? first : nil end
   def singular!() singular or raise "not singular" end
   def symbols() map {|x| x.to_sym} end
+  def exclude?(item) ! include? item end
 end
  
 class Object

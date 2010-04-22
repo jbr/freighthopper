@@ -8,6 +8,16 @@ class ArrayTest < Test::Unit::TestCase
     end
   end
   
+  context 'exclude' do
+    should 'return false if the array includes the element' do
+      assert_not %w(a b c).exclude?('b')
+    end
+    
+    should 'return true if the array does not include the element' do
+      assert %w(a b c).exclude?('z')
+    end
+  end
+  
   context 'singular' do
     should 'return the singular object if there is indeed only one' do
       assert_singular 5, [5]
