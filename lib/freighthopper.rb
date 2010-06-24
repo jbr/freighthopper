@@ -10,6 +10,24 @@ class Module
   def lazy_alias(to, from)
     define_method(to){|*args| send from, *args}
   end
+
+  def antonym_accessor(*args)
+    if 2 == args.length
+      from, to = args
+      define_method("#{to}?") { not send "#{from}?" }
+      define_method("#{to}=") {|val| send "#{from}=", ! val }
+    elsif args.singular.is_a?(Hash)
+      args.singular.each {|from, to| antonym_accessor from, to}
+    else
+      message = <<-EXCEPTION
+        antonym_accessor expects either
+          "antonym_accessor :from, :to"
+        or "antonym_accessor :from => :to"
+      EXCEPTION
+
+      raise message.unindent
+    end
+  end
 end
 
 class Array
