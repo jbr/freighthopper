@@ -3,7 +3,7 @@ specs:
 - activesupport: 
     version: 2.3.5
 - freighthopper: 
-    version: 0.1.8
+    version: 0.1.9
     source: 0
 - shoulda: 
     version: 2.11.1
