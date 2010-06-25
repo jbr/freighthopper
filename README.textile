@@ -65,6 +65,13 @@ if object.is_a?(Foo) || object.is_a?(Bar) || object.is_a?(Bibble)
   ...
 end
 
+#or maybe it was
+
+case object
+when Foo, Bar, Bibble
+  ...
+end
+
 #becomes
 if object.is_one_of? Foo, Bar, Bibble
   ...
