@@ -1,3 +1,5 @@
+require 'active_support'
+
 class Module
   def define_and_alias(target, feature, &blk)
     aliased_target, punctuation = target.to_s.sub(/([?!=])$/, ''), $1

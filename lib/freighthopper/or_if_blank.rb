@@ -1,3 +1,5 @@
+require 'freighthopper/soft_send'
+
 class Object  
   def or_if_blank(val = nil)
     if soft_send :blank?
