@@ -80,7 +80,7 @@ end
 
 h3. Lazy alias
 
-<code><pre># What was:
+<pre><code># What was:
 def to_s() name end
 #this is not the same as alias_method, because if #name is defined through method missing / lazily, it won't work.  Lazy alias is like alias_method, lazy-style
 
