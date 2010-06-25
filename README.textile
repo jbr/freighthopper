@@ -1,3 +1,133 @@
 h1. Freighthopper
 
 h2. Some monkeypatches for riding the Rails
+
+h3. Antonym Accessor
+
+Antonym accessor provides some simple ruby sugar for defining inverse relationships, like between private and public, enabled and disabled, on and off, etc.  I found myself defining these often enough I figured I'd extract the functionality.
+
+<pre><code>class Example
+  def private?() @private end
+  def private=(p) @private = p end
+  antonym_accessor :private => :public
+end
+
+e = Example.new
+e.private = true
+e.public? #=> false
+e.public = true
+e.private? #=> false
+</code></pre>
+
+h3. Define and alias
+
+The @alias_method_chain@ pattern requires you to def the method and then separately alias_method_chain it.  This pattern is not as dry as it could be.  Hence, @define_and_alias@.
+
+<pre><code>
+# What would previously have been:
+def foo_with_something(arg)
+  foo_without_something arg
+  5.times {puts arg}
+end
+alias_method_chain :foo, :something
+
+# Becomes:
+define_and_alias :foo, :something do |arg|
+  foo_without_something arg
+  5.times {puts arg}
+end
+</code></pre>
+
+One less line, and more dry.
+
+h3. Eval with options
+
+This is a slight tweak to @with_options@.  Here's the transformation in code:
+
+<pre><code># What was:
+map.with_options :name => 'freighthopper' do |fh|
+  fh.something
+  fh.that
+end
+
+# Becomes
+
+map.eval_with_options :name => 'freighthopper' do
+  something
+  that
+end
+</code></pre>
+
+h3. Is one of
+
+<pre><code># What was
+if object.is_a?(Foo) || object.is_a?(Bar) || object.is_a?(Bibble)
+  ...
+end
+
+#becomes
+if object.is_one_of? Foo, Bar, Bibble
+  ...
+end
+</code></pre>
+
+h3. Lazy alias
+
+<code></pre># What was:
+def to_s() name end
+#this is not the same as alias_method, because if #name is defined through method missing / lazily, it won't work.  Lazy alias is like alias_method, lazy-style
+
+lazy_alias :to_s, :name
+</code></pre>
+
+h3. Or if blank
+
+There are lots of implementations of this, but this is mine.  If the object has a blank method, it is called.  @or_if_blank@ can be called with an normal argument or a block.
+
+<pre><code>"".or_if_blank(:something_else) #=> :something_else
+
+[].or_if_blank { something_expensive_that_returns("hello") } #=> "hello"
+
+"not blank".or_if_blank(42) #=> "not blank"
+</code></pre>
+
+h3. Soft send
+
+This is like try.  It sends the method if the object responsds to the method, otherwise it returns nil.  Use like send.
+
+h3. Stdout extensions
+
+It bothers me that @p@, @puts@, @print@, and @pp@ all return @nil@.  This patch makes them return their arguments, which allows you to wrap anything with @p(...)@ and it'll still work.
+
+<pre><code>
+5 + p(5) #=> 10
+# 5</code></pre>
+
+Additionally, sometimes there's a puts left somewhere in your code and you'd really like to know where that stdout noise is coming from.  Enter @Kernel.trace_output@:
+
+<pre><code>Kernel.trace_output = true
+puts "hello"
+#test.rb:4:in `puts'
+#hello
+</code></pre>
+
+h3. String extensions
+
+TODO: documentation
+
+h3. Hash extensions
+
+TODO: documention
+
+h3. Float extension
+
+TODO: documentation
+
+h3. Array extensions
+
+TODO: documentation
+
+h3. ActiveRecord extensions
+
+TODO: documentation
+
