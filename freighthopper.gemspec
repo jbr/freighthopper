@@ -5,42 +5,41 @@
 
 Gem::Specification.new do |s|
   s.name = %q{freighthopper}
-  s.version = "0.1.8"
+  s.version = "0.1.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jacob Rothstein"]
   s.date = %q{2010-06-24}
-  s.default_executable = %q{convert_to_should_syntax}
   s.description = %q{More core ext}
   s.email = %q{github@jacobrothstein.com}
-  s.executables = ["convert_to_should_syntax"]
   s.extra_rdoc_files = [
     "LICENSE",
      "README.textile"
   ]
   s.files = [
-    ".gitignore",
-     "Gemfile",
-     "Gemfile.lock",
-     "LICENSE",
-     "README.textile",
-     "Rakefile",
-     "VERSION",
-     "bin/convert_to_should_syntax",
-     "freighthopper.gemspec",
-     "init.rb",
-     "lib/freighthopper.rb",
-     "pkg/.gitkeep",
-     "test/antonym_accessor_test.rb",
-     "test/array_test.rb",
-     "test/define_and_alias_test.rb",
-     "test/float_test.rb",
-     "test/hash_test.rb",
-     "test/kernel_test.rb",
-     "test/lazy_alias_test.rb",
-     "test/object_test.rb",
-     "test/string_test.rb",
-     "test/test_helper.rb"
+    "lib/freighthopper.rb",
+     "lib/freighthopper/activerecord.rb",
+     "lib/freighthopper/activerecord/cache_key.rb",
+     "lib/freighthopper/activerecord/clear_errors.rb",
+     "lib/freighthopper/activerecord/element_id.rb",
+     "lib/freighthopper/antonym_accessor.rb",
+     "lib/freighthopper/array.rb",
+     "lib/freighthopper/array/exclude.rb",
+     "lib/freighthopper/array/singular.rb",
+     "lib/freighthopper/array/symbols.rb",
+     "lib/freighthopper/define_and_alias.rb",
+     "lib/freighthopper/eval_with_options.rb",
+     "lib/freighthopper/float/to_s.rb",
+     "lib/freighthopper/hash/map_keys.rb",
+     "lib/freighthopper/is_one_of.rb",
+     "lib/freighthopper/lazy_alias.rb",
+     "lib/freighthopper/or_if_blank.rb",
+     "lib/freighthopper/soft_send.rb",
+     "lib/freighthopper/stdout_extensions.rb",
+     "lib/freighthopper/string.rb",
+     "lib/freighthopper/string/divide.rb",
+     "lib/freighthopper/string/strip.rb",
+     "lib/freighthopper/string/unindent.rb"
   ]
   s.homepage = %q{http://github.com/jbr/freighthopper}
   s.rdoc_options = ["--charset=UTF-8"]

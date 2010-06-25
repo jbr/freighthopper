@@ -2,18 +2,32 @@
 specs: 
 - activesupport: 
     version: 2.3.5
+- freighthopper: 
+    version: 0.1.8
+    source: 0
 - shoulda: 
-    version: 2.10.3
+    version: 2.11.1
 - test_rig: 
     version: 0.0.3
-hash: 36f75b5b994d20b47841bc6cc30c3e8bdd387129
-sources: []
-
+hash: f6b7efc3f7ddd9129e402e3391c0d1af01f879ed
+sources: 
+- Path: 
+    path: !ruby/object:Pathname 
+      path: /Users/jbr/code/freighthopper
+    require: 
+- Rubygems: 
+    uri: http://gemcutter.org
 dependencies: 
   shoulda: 
     version: ">= 0"
     group: 
     - :test
+  freighthopper: 
+    version: ">= 0"
+    require: []
+
+    group: 
+    - :default
   test_rig: 
     version: = 0.0.3
     group: 

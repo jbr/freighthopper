@@ -1,6 +1,5 @@
-require File.instance_eval { expand_path join(dirname(__FILE__), 'test_helper') }
-require 'freighthopper'
-
+require File.expand_path("../test_helper", __FILE__)
+require 'freighthopper/antonym_accessor'
 
 class TestClass
   def private?() @private end

@@ -12,9 +12,5 @@ end
 
 Bundler.require :default, :test
 
-$:.unshift File.instance_eval { expand_path join(dirname(__FILE__), "..", "lib") }
+Test::Unit::TestCase.send :include, TestRig
 
-
-class Test::Unit::TestCase
-  include TestRig
-end
