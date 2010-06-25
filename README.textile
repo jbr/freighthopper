@@ -82,7 +82,9 @@ h3. Lazy alias
 
 <pre><code># What was:
 def to_s() name end
-#this is not the same as alias_method, because if #name is defined through method missing / lazily, it won't work.  Lazy alias is like alias_method, lazy-style
+#this is not the same as alias_method, because if #name
+#is defined through method missing / lazily, it won't
+#work.  Lazy alias is like alias_method, lazy-style
 
 lazy_alias :to_s, :name
 </code></pre>
