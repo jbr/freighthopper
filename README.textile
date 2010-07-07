@@ -120,6 +120,12 @@ puts "hello"
 #hello
 </code></pre>
 
+h3. Fixnum extensions
+
+<pre><code>5.of {rand}</code></pre>
+
+This gives you five random numbers.  It's like @Fixnum.times@, but maps the return values instead of returning the number.
+
 h3. String extensions
 
 TODO: documentation
