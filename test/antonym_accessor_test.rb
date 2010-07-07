@@ -14,7 +14,7 @@ class HashForm < TestClass
   antonym_accessor :private => :public
 end
 
-class ArrayTest < Test::Unit::TestCase
+class AntonymAccessorTest < Test::Unit::TestCase
   def self.should_act_like_antonym_accessor
     should 'define a public= method' do
       @instance.public = true
