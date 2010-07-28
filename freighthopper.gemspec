@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{freighthopper}
-  s.version = "0.1.11"
+  s.version = "0.1.12"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jacob Rothstein"]
-  s.date = %q{2010-07-07}
+  s.date = %q{2010-07-28}
   s.description = %q{More core ext}
   s.email = %q{github@jacobrothstein.com}
   s.extra_rdoc_files = [
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
      "lib/freighthopper/array/singular.rb",
      "lib/freighthopper/array/symbols.rb",
      "lib/freighthopper/define_and_alias.rb",
+     "lib/freighthopper/eigenclass.rb",
      "lib/freighthopper/eval_with_options.rb",
      "lib/freighthopper/fixnum.rb",
      "lib/freighthopper/float/to_s.rb",
@@ -51,6 +52,7 @@ Gem::Specification.new do |s|
     "test/antonym_accessor_test.rb",
      "test/array_test.rb",
      "test/define_and_alias_test.rb",
+     "test/eigenclass_test.rb",
      "test/fixnum_test.rb",
      "test/float_test.rb",
      "test/hash_test.rb",
