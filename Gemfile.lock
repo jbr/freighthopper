@@ -1,15 +1,56 @@
 --- 
+dependencies: 
+  rake: 
+    group: 
+    - :default
+    version: ">= 0"
+  shoulda: 
+    group: 
+    - :test
+    version: ">= 0"
+  freighthopper: 
+    group: 
+    - :default
+    version: ">= 0"
+    require: []
+
+  test_rig: 
+    group: 
+    - :test
+    version: = 0.0.3
+  jeweler: 
+    group: 
+    - :default
+    version: ">= 0"
+  activesupport: 
+    group: 
+    - :default
+    version: = 2.3.5
+    require: 
+    - active_support
 specs: 
+- rake: 
+    version: 0.8.7
 - activesupport: 
     version: 2.3.5
 - freighthopper: 
-    version: 0.1.9
+    version: 0.1.12
     source: 0
+- gemcutter: 
+    version: 0.6.1
+- git: 
+    version: 1.2.5
+- json_pure: 
+    version: 1.4.3
+- rubyforge: 
+    version: 2.0.4
+- jeweler: 
+    version: 1.4.0
 - shoulda: 
     version: 2.11.1
 - test_rig: 
     version: 0.0.3
-hash: f6b7efc3f7ddd9129e402e3391c0d1af01f879ed
+hash: 554bca937bedab42d8307c4b74df3d3699c84701
 sources: 
 - Path: 
     path: !ruby/object:Pathname 
@@ -17,24 +58,3 @@ sources:
     require: 
 - Rubygems: 
     uri: http://gemcutter.org
-dependencies: 
-  shoulda: 
-    version: ">= 0"
-    group: 
-    - :test
-  freighthopper: 
-    version: ">= 0"
-    require: []
-
-    group: 
-    - :default
-  test_rig: 
-    version: = 0.0.3
-    group: 
-    - :test
-  activesupport: 
-    version: = 2.3.5
-    require: 
-    - active_support
-    group: 
-    - :default
