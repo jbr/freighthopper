@@ -2,6 +2,25 @@ h1. Freighthopper
 
 h2. Some monkeypatches for riding the Rails
 
+h3. Eigenclass & define_eigenmethod
+
+Quick access to the eigenclass.
+
+<pre><code>class Example
+  def private?() false end
+end
+
+e = Example.new
+e.define_eigenmethod(:private?) {true}
+e.private? #=> true
+e.eigenclass #=> #<Class:#<Example:0x18b684c>>
+e.eigenclass.instance_methods.include? :private? #=> true
+e.eigenmethod :private? #=> #<UnboundMethod: Example#private?>
+
+Example.new.private? #=> false
+
+</code></pre>
+
 h3. Antonym Accessor
 
 Antonym accessor provides some simple ruby sugar for defining inverse relationships, like between private and public, enabled and disabled, on and off, etc.  I found myself defining these often enough I figured I'd extract the functionality.
