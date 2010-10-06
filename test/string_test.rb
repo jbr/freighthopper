@@ -44,6 +44,10 @@ class StringTest < Test::Unit::TestCase
       
       assert_equal "a\n  b\n    c", unindented
     end
+
+    should 'work with blank lines' do
+      assert_equal "test", "test".unindent
+    end
     
     should 'replace tabs with tablength' do
       unindented = "\ttest\n\t\ttest".unindent :tablength => 4

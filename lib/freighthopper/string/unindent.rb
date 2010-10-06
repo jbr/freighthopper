@@ -4,7 +4,11 @@ class String
     lines = gsub("\t", " " * tablength).split("\n")
 
     whitespace = lines.map do |line|
-      line.match(/^(\s+)/).captures.first
+      if match = line.match(/^(\s+)/)
+        match.captures.first
+      else
+        ""
+      end
     end.min{ |l, r| l.length <=> r.length }
 
     lines.map{ |l| l.gsub /^#{whitespace}/, ''}.join("\n")
