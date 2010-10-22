@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{freighthopper}
-  s.version = "0.1.13"
+  s.version = "0.1.14"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jacob Rothstein"]
-  s.date = %q{2010-10-06}
+  s.date = %q{2010-10-21}
   s.description = %q{More core ext}
   s.email = %q{github@jacobrothstein.com}
   s.extra_rdoc_files = [
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
      "lib/freighthopper/antonym_accessor.rb",
      "lib/freighthopper/array.rb",
      "lib/freighthopper/array/exclude.rb",
+     "lib/freighthopper/array/inverse_grep.rb",
      "lib/freighthopper/array/singular.rb",
      "lib/freighthopper/array/symbols.rb",
      "lib/freighthopper/define_and_alias.rb",

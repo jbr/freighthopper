@@ -1,3 +1,4 @@
-require 'freighthopper/array/exclude.rb'
-require 'freighthopper/array/singular.rb'
-require 'freighthopper/array/symbols.rb'
+require 'freighthopper/array/exclude'
+require 'freighthopper/array/singular'
+require 'freighthopper/array/symbols'
+require 'freighthopper/array/inverse_grep'

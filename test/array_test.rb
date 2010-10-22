@@ -2,6 +2,19 @@ require File.instance_eval { expand_path join(dirname(__FILE__), 'test_helper') 
 require 'freighthopper'
 
 class ArrayTest < Test::Unit::TestCase
+  context 'inverse_grep' do
+    should 'exclude anything that === matches the pattern' do
+      assert_equal (6..10).to_a, (1..10).inverse_grep(1..5)
+    end
+
+    should 'map with the block if provided' do
+      start    = %w( monday tuesday wednesday thursday friday saturday sunday )
+      expected = %w( Monday Tuesday Wednesday Thursday Friday )
+      
+      assert_equal expected, start.inverse_grep(/^s/){|day| day.titlecase}
+    end
+  end
+
   context 'symbols' do
     should 'map to sym' do
       assert_equal [:a, :b, :c, :d, :e], %w( a b c d e ).symbols
